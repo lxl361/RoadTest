@@ -1,3 +1,4 @@
+# 主程序
 # !/usr/bin/python
 #coding:utf-8
 import serial
