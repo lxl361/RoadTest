@@ -27,8 +27,10 @@ if __name__ == '__main__':
                                 while i<len(data):
                                         if data[i] == '#':
                                                 elsedata = getData()
+                                                if elsedata==None:
+                                                        continue
                                                 solarAngleData = solarAngles(elsedata[2],elsedata[1])
-                                                alldata=str(wholedata)+' '+str(elsedata[0])+' '+str(elsedata[1])+' '+str(elsedata[2])+' '+str(solarAngleData[0])+' '+str(solarAngleData[1])
+                                                alldata=str(wholedata)+' '+str(elsedata[0])+' '+str(elsedata[1])+' '+str(elsedata[2])+' '+str(solarAngleData[0])+' '+str(solarAngleData[1]+' '+str(elsedata[3])+' '+' '+str(elsedata[4])+' '+str(elsedata[5])+' '+str(elsedata[6]))
                                                 # alldata = alldata + ' ' + str(elsedata[4])+ ' ' + str(elsedata[5])+ ' ' + str(elsedata[6])
                                                 # 光强，时间，纬度，经度，太阳仰角，太阳偏离北方的角度（根据东西分正负,东边正值西边负值）
                                                 # print('data:'+alldata)
