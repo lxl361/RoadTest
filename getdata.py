@@ -4,11 +4,15 @@ import socket
 import math
 #coding:utf-8
 
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, True)
+s.ioctl(socket.SIO_KEEPALIVE_VALS, (1, 60 * 1000, 30 * 1000))
+s.connect(('192.168.43.168', 8181))
 
-def getData(client):
+def getData():
     # s.send("connect")
     # coord = s.recv(1024).decode()
-    coord = client.recv(1024).decode()
+    coord = s.recv(1024).decode()
     # s.close()
     place = ''
     print(coord)
@@ -47,11 +51,7 @@ def getData(client):
     return ST,lati,longi,bearing,speed,accuracy,locationTime
 
 if __name__ == '__main__':
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, True)
-    s.ioctl(socket.SIO_KEEPALIVE_VALS, (1, 60 * 1000, 30 * 1000))
-    s.connect(('192.168.43.168', 8181))
     while(True):
-        y = getData(s)
+        y = getData()
         # print(y)
     

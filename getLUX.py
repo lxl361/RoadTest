@@ -9,7 +9,7 @@ if __name__ == '__main__':
         serial = serial.Serial('COM1841','9600')
         if serial.isOpen():
                 print('串口打开成功！\n')
-                f = open('./data/LUX2.txt','a') #若需保留原数据则改为f = open('./try.txt','a')
+                f = open('./data/LUX333.txt','a') #若需保留原数据则改为f = open('./try.txt','a')
                 #pass
         else :
                 print('串口打开失败！\n')
@@ -30,7 +30,7 @@ if __name__ == '__main__':
                                                 if elsedata==None:
                                                         continue
                                                 solarAngleData = solarAngles(elsedata[2],elsedata[1])
-                                                alldata=str(wholedata)+' '+str(elsedata[0])+' '+str(elsedata[1])+' '+str(elsedata[2])+' '+str(solarAngleData[0])+' '+str(solarAngleData[1]+' '+str(elsedata[3])+' '+' '+str(elsedata[4])+' '+str(elsedata[5])+' '+str(elsedata[6]))
+                                                alldata=str(wholedata)+' '+str(elsedata[0])+' '+str(elsedata[1])+' '+str(elsedata[2])+' '+str(solarAngleData[0])+' '+str(solarAngleData[1])+' '+str(elsedata[3])+ ' ' +str(elsedata[4])+' '+str(elsedata[5])+' '+str(elsedata[6])
                                                 # alldata = alldata + ' ' + str(elsedata[4])+ ' ' + str(elsedata[5])+ ' ' + str(elsedata[6])
                                                 # 光强，时间，纬度，经度，太阳仰角，太阳偏离北方的角度（根据东西分正负,东边正值西边负值）
                                                 # print('data:'+alldata)
