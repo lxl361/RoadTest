@@ -27,21 +27,27 @@ if __name__ == '__main__':
                                 while i<len(data):
                                         if data[i] == '#':
                                                 elsedata = getData()
-                                                if elsedata==None:
-                                                        continue
-                                                solarAngleData = solarAngles(elsedata[2],elsedata[1])
-                                                alldata=str(wholedata)+' '+str(elsedata[0])+' '+str(elsedata[1])+' '+str(elsedata[2])+' '+str(solarAngleData[0])+' '+str(solarAngleData[1])+' '+str(elsedata[3])+ ' ' +str(elsedata[4])+' '+str(elsedata[5])+' '+str(elsedata[6])
-                                                # alldata = alldata + ' ' + str(elsedata[4])+ ' ' + str(elsedata[5])+ ' ' + str(elsedata[6])
-                                                # 光强，时间，纬度，经度，太阳仰角，太阳偏离北方的角度（根据东西分正负,东边正值西边负值）
-                                                # print('data:'+alldata)
-                                                print(alldata)
-                                                # f.write(alldata.decode('utf-8'))
-                                                f.write(alldata)
-                                                # flush实现实时数据的写入，避免文件未正常关闭下，无法正常写入数据
-                                                f.flush()
-                                                # f.write('\n')
-                                                wholedata = ''
-                                                i = i+1
+                                                if (len(elsedata) == 0):
+                                                   continue
+                                                for item in elsedata:
+                                                        solarAngleData = solarAngles(item[2], item[1])
+                                                        alldata = str(wholedata) + ' ' + str(item[0]) + ' ' + str(
+                                                                item[1]) + ' ' + str(item[2]) + ' ' + str(
+                                                                solarAngleData[0]) + ' ' + str(
+                                                                solarAngleData[1]) + ' ' + str(item[3]) + ' ' + str(
+                                                                item[4]) + ' ' + str(item[5]) + ' ' + str(
+                                                                item[6])
+                                                        # alldata = alldata + ' ' + str(elsedata[4])+ ' ' + str(elsedata[5])+ ' ' + str(elsedata[6])
+                                                        # 光强，时间，纬度，经度，太阳仰角，太阳偏离北方的角度（根据东西分正负,东边正值西边负值）
+                                                        # print('data:'+alldata)
+                                                        print(alldata)
+                                                        # f.write(alldata.decode('utf-8'))
+                                                        f.write(alldata)
+                                                        # flush实现实时数据的写入，避免文件未正常关闭下，无法正常写入数据
+                                                        f.flush()
+                                                        # f.write('\n')
+                                                        wholedata = ''
+                                                        i = i + 1
                                         else:
                                                 wholedata += data[i]
                                                 i = i+1

@@ -15,11 +15,30 @@ def getData():
     coord = s.recv(1024).decode()
     # s.close()
     place = ''
-    print(coord)
+    result = []
     try:
-        type, place = coord.split(':')
+        list = coord.split('\n')
+        for item in list:
+            if len(item) != 0:
+                type, place = item.split(':')
+                temp = convertLatLongs(type, place)
+                result.append(temp)
     except:
         print('error')
+    '''
+    timezone = math.floor((longi+7.5*(a))/15)
+    UTCh = datetime.datetime.utcnow().hour
+    ST = timezone + UTCh
+    UTCm = datetime.datetime.utcnow().minute
+    ST=ST+float(UTCm)/100
+    '''
+
+    # 获取时间戳
+    print(result)
+    #print("----"+str(time.mktime(time.localtime())))
+    return result
+
+def convertLatLongs(type, place):
     if (len(place) <= 0):
         return None
     if type.find('location')!=-1:
@@ -32,23 +51,11 @@ def getData():
         speed=float(speed)
         accuracy=float(accuracy)
         locationTime=int(locationTime)
-    if(longi>0):
-        a = 1
-    else:
-        a = -1
-    '''
-    timezone = math.floor((longi+7.5*(a))/15)
-    UTCh = datetime.datetime.utcnow().hour
-    ST = timezone + UTCh
-    UTCm = datetime.datetime.utcnow().minute
-    ST=ST+float(UTCm)/100
-    '''
-    # 获取时间戳
-    current = str(time.time() * 1000)
-    UTCsecond,two = current.split('.')
-    ST = int(UTCsecond)
-    #print("----"+str(time.mktime(time.localtime())))
-    return ST,lati,longi,bearing,speed,accuracy,locationTime
+        current = str(time.time() * 1000)
+        UTCsecond, two = current.split('.')
+        ST = int(UTCsecond)
+        return [ST, lati, longi,bearing,speed,accuracy,locationTime]
+    return None
 
 if __name__ == '__main__':
     while(True):
