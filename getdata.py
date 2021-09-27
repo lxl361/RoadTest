@@ -40,7 +40,7 @@ def getData():
 
 def convertLatLongs(type, place):
     if (len(place) <= 0):
-        return None
+        return []
     if type.find('location')!=-1:
         # lati,longi,=place.split(',')
         #lati,longi=place.split(',')
@@ -55,7 +55,7 @@ def convertLatLongs(type, place):
         UTCsecond, two = current.split('.')
         ST = int(UTCsecond)
         return [ST, lati, longi,bearing,speed,accuracy,locationTime]
-    return None
+    return []
 
 if __name__ == '__main__':
     while(True):

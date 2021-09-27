@@ -30,6 +30,8 @@ if __name__ == '__main__':
                                                 if (len(elsedata) == 0):
                                                    continue
                                                 for item in elsedata:
+                                                        if (len(item) == 0):
+                                                                continue
                                                         solarAngleData = solarAngles(item[2], item[1])
                                                         alldata = str(wholedata) + ' ' + str(item[0]) + ' ' + str(
                                                                 item[1]) + ' ' + str(item[2]) + ' ' + str(
@@ -43,6 +45,7 @@ if __name__ == '__main__':
                                                         print(alldata)
                                                         # f.write(alldata.decode('utf-8'))
                                                         f.write(alldata)
+                                                        f.write('\n')
                                                         # flush实现实时数据的写入，避免文件未正常关闭下，无法正常写入数据
                                                         f.flush()
                                                         # f.write('\n')
