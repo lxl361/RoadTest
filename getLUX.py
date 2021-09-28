@@ -49,8 +49,8 @@ if __name__ == '__main__':
                                                         # flush实现实时数据的写入，避免文件未正常关闭下，无法正常写入数据
                                                         f.flush()
                                                         # f.write('\n')
-                                                        wholedata = ''
-                                                        i = i + 1
+                                                wholedata = ''
+                                                i = i + 1
                                         else:
                                                 wholedata += data[i]
                                                 i = i+1
