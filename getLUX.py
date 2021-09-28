@@ -9,7 +9,7 @@ if __name__ == '__main__':
         serial = serial.Serial('COM1841','9600')
         if serial.isOpen():
                 print('串口打开成功！\n')
-                f = open('./data/LUX1.txt','a') #若需保留原数据则改为f = open('./try.txt','a')
+                f = open('./data/LUX09291.txt','a') #若需保留原数据则改为f = open('./try.txt','a')
                 #pass
         else :
                 print('串口打开失败！\n')
