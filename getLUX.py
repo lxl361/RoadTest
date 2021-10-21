@@ -5,6 +5,7 @@ import serial
 from getdata import getData
 from solarAngles import solarAngles
 
+
 if __name__ == '__main__':
         serial = serial.Serial('COM1841','9600')
         if serial.isOpen():
