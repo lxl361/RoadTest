@@ -22,7 +22,6 @@ if __name__ == '__main__':
                                 # print(type(data))
                                 # read数据的时候需要解码，然后数据有误会出现特殊字符
                                 data = serial.read(count).decode()
-
                                 i = 0
                                 while i<len(data):
                                         if data[i] == '#':
